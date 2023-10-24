@@ -12,8 +12,8 @@ set $left j
 set $right semicolon
 
 # Gaps Definitions
-gaps inner 8 # Set inner gaps to 8 pixels
-gaps outer 8 # Set outer gaps to 8 pixel
+gaps inner 8
+gaps outer 8
 
 # Workspaces
 set $firstMonitor HDMI1
