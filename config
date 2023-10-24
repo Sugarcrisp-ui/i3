@@ -12,8 +12,8 @@ set $left j
 set $right semicolon
 
 # Gaps Definitions
-gaps inner 8
-gaps outer 8
+gaps inner 8 # Set inner gaps to 8 pixels
+gaps outer 8 # Set outer gaps to 8 pixel
 
 # Workspaces
 set $firstMonitor HDMI1
@@ -39,6 +39,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -119,7 +120,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 # Application Keyboard Shortcuts
-# (Include or modify as needed)
 bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -s
 bindsym Ctrl+Mod1+e exec --no-startup-id archlinux-tweak-tool
 bindsym control+space exec --no-startup-id catfish;focus
