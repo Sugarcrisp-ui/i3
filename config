@@ -236,4 +236,3 @@ client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 # Set a background color for all clients.
 client.background       #242424
 
-test
