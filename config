@@ -106,13 +106,14 @@ bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
 # Autostart
 exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
 exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
 exec --no-startup-id sleep 1 && $(volumeicon)
 exec --no-startup-id sleep 2 && $(nm-applet)
 exec --no-startup-id sleep 3 && $(copyq)
 exec --no-startup-id sleep 5 && $(pamac-tray)
 exec_always --no-startup-id sleep 6 && blueberry-tray
 exec_always --no-startup-id numlockx on
-exec --no-startup-id cryptomator
+#exec --no-startup-id cryptomator
 exec --no-startup-id xfce4-power-manager &
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
@@ -172,14 +173,14 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
 
 # Border Control
 # --------------------------------
-# Toggle window borders between normal, 1 pixel, and none.
-default_border none
+# Toggle window borders between normal, 2 pixel, and none.
+default_border pixel 2
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 bindsym $mod+t border normal
-bindsym $mod+y border 1pixel
+bindsym $mod+y border pixel 2
 bindsym $mod+u border none
 
-# Gap Control (for use with i3-gaps)
+# Gap Control (use with i3-gaps)
 # --------------------------------
 # Define modes for changing inner and outer gaps.
 set $mode_gaps Gaps: (o) outer, (i) inner
