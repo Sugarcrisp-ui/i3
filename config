@@ -6,14 +6,14 @@ set $backgroundBorderColor #242424
 
 # Key Definitions
 set $mod Mod4
-set $up l
-set $down
+set $up i
+set $down k
 set $left j
-set $right semicolon
+set $right l
 
 # Gaps Definitions
-gaps inner 8
-gaps outer 8
+gaps inner 2
+gaps outer 2
 
 # Workspaces
 set $firstMonitor HDMI1
@@ -51,7 +51,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# Application Launcher
+# XFCE4 Application Launcher
 bindsym mod1+d exec --no-startup-id xfce4-appfinder
 
 # Rofi Application Launcher
@@ -64,7 +64,7 @@ bindsym $mod+x exec --no-startup-id archlinux-logout
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec_always ~/lock_and_kill.sh, restart
+bindsym $mod+Shift+r exec --no-startup-id i3-msg restart
 
 # Kill Window
 bindsym $mod+q kill
@@ -89,6 +89,7 @@ bindsym Mod1+Ctrl+Right workspace next
 bindsym Mod1+Ctrl+Left workspace prev
 for_window [urgent=latest] focus
 
+
 # Tiling Parameters
 default_orientation horizontal
 bindsym $mod+h split h
@@ -97,38 +98,38 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
-# Resizing
-bindsym $mod+Mod1+Ctrl+Right resize shrink width 1 px or 1 ppt
-bindsym $mod+Mod1+Ctrl+Up resize grow height 1 px or 1 ppt
-bindsym $mod+Mod1+Ctrl+Down resize shrink height 1 px or 1 ppt
-bindsym $mod+Mod1+Ctrl+Left resize grow width 1 px or 1 ppt
-
 # Autostart
-exec --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
-exec --no-startup-id i3-msg 'workspace 1; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
-exec --no-startup-id sleep 1 && $(volumeicon)
-exec --no-startup-id sleep 2 && $(nm-applet)
-exec --no-startup-id sleep 3 && $(copyq)
-exec --no-startup-id sleep 5 && $(pamac-tray)
-exec_always --no-startup-id sleep 6 && blueberry-tray
-exec_always --no-startup-id numlockx on
-#exec --no-startup-id cryptomator
-exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
+exec --no-startup-id insync start
+exec_always --no-startup-id sleep 2 && $(nm-applet)
+exec_always --no-startup-id sleep 3 && $(copyq)
+exec_always --no-startup-id sleep 5 && $(pamac-tray)
+exec_always --no-startup-id blueberry-tray
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
+exec_always --no-startup-id i3-msg border toggle
+#exec_always --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
+#exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 1; exec chromium'
+#exec_always --no-startup-id sleep 1 && $(volumeicon)
+#exec_always --no-startup-id numlockx on
+#exec_always --no-startup-id cryptomator
+#exec_always --no-startup-id xfce4-power-manager &
+
+# Betterlockscreen
+# lock and suspend
+#bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -s
+
+# lock only
+bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -l
 
 # Application Keyboard Shortcuts
-bindsym Ctrl+mod1+l exec --no-startup-id betterlockscreen -s
 bindsym Ctrl+Mod1+e exec --no-startup-id archlinux-tweak-tool
 bindsym Ctrl+space exec --no-startup-id catfish;focus
-bindsym $mod+c exec --no-startup-id conky-toggle
-bindsym Ctrl+mod1+Next exec --no-startup-id conky-rotate -n
-bindsym Ctrl+mod1+Prior exec --no-startup-id conky-rotate -p
 bindsym $mod+F5 exec --no-startup-id meld
-bindsym Ctrl+mod1+u exec --no-startup-id pavucontrol
+bindsym Ctrl+mod1+v exec --no-startup-id pavucontrol
 bindsym Ctrl+mod1+p exec --no-startup-id pamac-manager
 bindsym $mod+Return exec --no-startup-id xfce4-terminal;focus
 bindsym Ctrl+mod1+r exec --no-startup-id rofi-theme-selector
@@ -141,19 +142,23 @@ bindsym $mod+w exec --no-startup-id exo-open --launch webbrowser
 bindsym Ctrl+mod1+f exec --no-startup-id firefox
 bindsym Ctrl+mod1+c exec --no-startup-id chromium
 bindsym Ctrl+mod1+g exec --no-startup-id google-chrome-stable
+bindsym Ctrl+$mod+s exec --no-startup-id spotify
 bindsym --release $mod+Escape exec xkill
 bindsym Ctrl+Shift+p exec --no-startup-id xfce4-screenshooter
+#bindsym $mod+c exec --no-startup-id conky-toggle
+#bindsym Ctrl+mod1+Next exec --no-startup-id conky-rotate -n
+#bindsym Ctrl+mod1+Prior exec --no-startup-id conky-rotate -p
 # Add more application keyboard shortcuts here
 
 # Variety Wallpaper Control
-bindsym mod1+t exec --no-startup-id variety -t
-bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
-bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
-bindsym mod1+f exec --no-startup-id variety -f
-bindsym mod1+Up exec --no-startup-id variety --pause
-bindsym mod1+Down exec --no-startup-id variety --resume
+#bindsym mod1+t exec --no-startup-id variety -t
+#bindsym mod1+n exec --no-startup-id variety -n
+#bindsym mod1+Right exec --no-startup-id variety -n
+#bindsym mod1+p exec --no-startup-id variety -p
+#bindsym mod1+Left exec --no-startup-id variety -p
+#bindsym mod1+f exec --no-startup-id variety -f
+#bindsym mod1+Up exec --no-startup-id variety --pause
+#bindsym mod1+Down exec --no-startup-id variety --resume
 
 # Audio Control
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
@@ -180,6 +185,9 @@ bindsym $mod+t border normal
 bindsym $mod+y border pixel 2
 bindsym $mod+u border none
 
+# Enable smart borders
+smart_borders on
+
 # Gap Control (use with i3-gaps)
 # --------------------------------
 # Define modes for changing inner and outer gaps.
@@ -197,6 +205,9 @@ mode "$mode_gaps" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+# Enable smart gaps to auto adjust outer gaps when only one window is present
+smart_gaps on
 
 mode "$mode_gaps_inner" {
     bindsym plus gaps inner current plus 5
@@ -236,4 +247,8 @@ client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 
 # Set a background color for all clients.
 client.background       #242424
+
+# Set the override property to true to force no title bar
+for_window [class="Code"] border pixel 0, override_redirect=true
+
 
