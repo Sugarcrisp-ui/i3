@@ -110,7 +110,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec_always --no-startup-id i3-msg border toggle
-#exec_always --no-startup-id feh --bg-fill /home/brett/.config/variety/Fetched/Spider-Man-Wallpaper.jpg &
+exec_always --no-startup-id feh --bg-fill /home/brett/Pictures/background-images/spiderman.jpg &
 #exec --no-startup-id i3-msg 'workspace 1; exec firefox'
 #exec --no-startup-id i3-msg 'workspace 1; exec chromium'
 #exec_always --no-startup-id sleep 1 && $(volumeicon)
